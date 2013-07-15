@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chat Client</title>
+    <link type="text/plain" rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="vendor/jquery/jquery-1.9.1.js"></script>
+    <script src='vendor/underscore.js'></script>
+    <script src="vendor/moment.min.js"></script>
+
+  </head>
+  <body>
+    <section>
+      <div id="mainBox" class='container'>
+        <h1>Chat Client</h1>
+        <h2>Current Chatroom: <span id="chatRoomName">Messages</span></h2>
+        <h2>Your Username: <span id="userName"></span></h2>
+          <form id='userChatForm'>
+            <input id='userChatMessage'type='text'/>
+            <input type='submit' value='Send Message'/>
+          </form>
+          <form id="refresh">Auto-Refresh Every
+            <select>
+              <option value="2" >2</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="0" selected >-Manual-</option>
+            </select> Seconds
+          </form>
+          <form id='manualRefresh'>
+            <input type='submit' value='Manual Refresh'/>
+          </form>
+          <form id="listLength">Display
+            <select>
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+            </select> Messages
+          </form>
+        <ul id='chatList'></ul>
+      </div>
+
+      <aside>
+        <div id='friendListBox' class='container'>
+          <h2>Your Friends:</h2>
+          <ul id='friendList'></ul>
+        </div>
+
+        <div id='chatRoomBox' class='container'>
+          <h2>Chat Rooms:</h2>
+          <form id='createChatRoomForm'>
+            Create New Room: <br>
+            <input id='createChatRoom'type='text'/>
+            <input type='submit'/>
+          </form>
+          <ul id='chatRooms'></ul>
+        </div>
+
+      </aside>
+    </section>
+
+    <script src="js/setup.js"></script>
+  </body>
+</html>

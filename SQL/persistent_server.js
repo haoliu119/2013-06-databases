@@ -6,18 +6,14 @@ var mysql = require('mysql');
  * database: "chat" specifies that we're using the database called
  * "chat", which we created by running schema.sql.*/
 var dbConnection = mysql.createConnection({
-  user: "",
-  password: "",
+  user: "haoliu",
+  password: "haoliu",
   database: "chat"
 });
 
-dbConnection.connect();
-/* Now you can make queries to the Mysql database using the
- * dbConnection.query() method.
- * See https://github.com/felixge/node-mysql for more details about
- * using this module.*/
+// dbConnection.connect();
 
-/* You already know how to create an http server from the previous
- * assignment; you can re-use most of that code here. */
 
-dbConnection.end();
+// dbConnection.end();
+
+exports.dbConnection = dbConnection;

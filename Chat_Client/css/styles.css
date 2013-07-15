@@ -1,0 +1,115 @@
+body {
+    background-color: #C9DEF2;
+    text-align: left;
+}
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2{
+    margin: 0 0 5px 0;
+}
+h1{
+    color: #435464;
+}
+h2{
+    font-size: 1.2em;
+}
+/*p{
+    display: inline;
+}*/
+div{
+    border: 1px solid #DEDEDE;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: white;
+}
+a:hover {
+    font-weight: bold;
+}
+section{
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    min-width: 800px;
+    background-color: #DAE9F7;
+    padding: 15px;
+}
+.container{
+    box-shadow: 1px 1px 3px 1px #808080;
+}
+form{
+    display: inline-block;
+    margin: 0 0 10px 0;
+}
+input[type='submit'][disabled]{
+    color: gray;
+}
+#userChatForm{
+    width:100%;
+}
+#userChatForm input[type='text']{
+    width: calc(100% - 160px);
+}
+#userChatForm input[type='submit']{
+    width: 150px;
+}
+#manualRefresh{
+    margin-left: 5px;
+}
+#listLength{
+    float: right;
+}
+#createChatRoomForm input[type='text']{
+    width: calc(100% - 74px);
+}
+#createChatRoomForm input[type='submit']{
+    width: 64px;
+}
+#mainBox{
+    display: inline-block;
+    width: calc(100% - 275px);
+    min-width: 500px;
+    min-height: 600px;
+    margin: 0 10px 0 0;
+}
+#chatList {
+    margin: 0;
+    padding: 0;
+}
+#chatList li{
+    word-wrap: break-word;
+    border: 1px solid #DEDEDE;
+    margin-top: -1px;
+}
+.userLink{
+  color: #247DD6;
+}
+.bold{
+    color: red;
+}
+.timeStamp{
+    float: right;
+    color: gray;
+}
+aside{
+    position: fixed;
+    display: inline-block;
+    width: 240px;
+    margin: 0px;
+}
+#friendListBox{
+    height: 300px;
+    margin-bottom: 10px;
+}
+#friendList {
+    overflow: scroll;
+}
+#chatRoomBox {
+    height: 300px;
+}
+#chatRooms {
+    overflow: scroll;
+}
