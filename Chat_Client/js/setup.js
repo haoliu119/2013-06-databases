@@ -21,20 +21,36 @@ if(!/(&|\?)username=/.test(window.location.search)){
 }
 var user = window.location.search.slice(10);
 $('#userName').text(user);
+if (user) postUsername(user);
 
 // Don't worry about this code, it will ensure that your ajax calls are allowed by the browser
 // $.ajaxPrefilter(function(settings, _, jqXHR) {
 //   jqXHR.setRequestHeader("X-Parse-Application-Id", "voLazbq9nXuZuos9hsmprUz7JwM2N0asnPnUcI7r");
 //   jqXHR.setRequestHeader("X-Parse-REST-API-Key", "QC2F43aSAghM97XidJw8Qiy1NXlpL5LR45rhAVAf");
 // });
+function postUsername(username){
+  $.ajax('http://127.0.0.1:8080/users',{
+    contentType: 'application/json',
+    type: 'POST',
+    data: JSON.stringify({
+      'username': user
+    }),
+    success: function(data){
+      console.log('POSTED username');
+    },
+    error: function(data) {
+      console.log('Ajax POST failed');
+    }
+  });
+}
 
 function print(data){
   data = JSON.parse(data);
   $('#chatList').text('');
   _.each(data, function(val){
     var $userLink = $("<a href='#' class='userLink'></a>").text(val['username']);
-    var $timeStamp = $("<span class='timeStamp'></span><br>").text(prettyTimeStamp(val['createdAt']));
-    var $text = val['text'] ? $("<span class='chatMessage'></span>").text(val['text'].slice(0,200)) : "";
+    var $timeStamp = $("<span class='timeStamp'></span><br>").text(prettyTimeStamp(val['created_at']));
+    var $text = val['message'] ? $("<span class='chatMessage'></span>").text(val['message'].slice(0,200)) : "";
     if (friendList[val['username']] && $text) {
       $text.addClass('bold');
     }
@@ -55,7 +71,6 @@ function prettyTimeStamp(timeStamp){
     return moment(timeStamp).fromNow(); // function defined in MIT's mement.min.js
   }
 }
-
 var timeID;
 /** GET: classes/[roomName] **/
 var $get = function(){
@@ -88,7 +103,7 @@ $.ajax(url, {
   type: 'POST',
   data: JSON.stringify({
     /*jshint multistr: true */
-    'text' : message,
+    'message' : message,
     'username': user
   }),
   success: function(data){
